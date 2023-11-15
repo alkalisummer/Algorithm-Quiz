@@ -2,6 +2,7 @@
 
 javascript로 공부하는 알고리즘
 <br><br>
+
 ## 1. 시간복잡도
 
 #### 빅오 표기법(Big-O Notation)
@@ -20,7 +21,8 @@ javascript로 공부하는 알고리즘
 
 ## 2. 기본입력
 
-#### fs모듈 
+#### fs모듈
+
 입력데이터가 텍스트 파일 형태로 주어지는 경우, 파일 시스템 모듈을 사용
 예를 들어 /dev/stdin 파일에 적힌 테스트를 읽어오는 경우, 다음과 같이 코드를 작성
 기능: 전체 텍스트를 읽어 온 뒤에, 줄바꿈 기호를 기준으로 구분하여 리스트로 변환
@@ -36,6 +38,7 @@ console.log(input);
 ```
 
 #### readline 모듈
+
 한 줄씩 입력을 받아서, 처리하여 정답을 출력할때는 readline 모듈을 사용할 수 있다.
 
 ```
@@ -44,7 +47,7 @@ const rl = require('readline').createInterface({
   output: process.stdout
 });
 
-let input = |];
+let input = [];
 
 rl.on('line', function(line) {
   // 콘솔 입력 창에서 줄바꿈(Enter)를 입력할 때마다 호출
@@ -57,4 +60,52 @@ rl.on('line', function(line) {
 
 ```
 
+#### javascript 큐(Queue) 구현하기
 
+```
+class Queue {
+constructor() {
+this.items = {};
+this.headIndex = 0;
+this.tailIndex = 0;
+}
+enqueue(item) {
+this.items[this.tailIndex] = item;
+this.tailIndex++;
+}
+dequeue() {
+const item = this.items[this.headIndex];
+delete this.items[this.headIndex];
+this.headIndex++;
+return item;
+}
+peek() {
+return this.items[this.headIndex];
+}
+getLength() {
+return this.tailIndex - this.headIndex;
+}
+}
+
+// 사용법
+
+// 구현된 큐(Queue) 라이브러리 사용
+queue = new Queue();
+
+// 삽입(5) - 삽입(2) - 삽입(3) - 삽입(7)
+// - 삭제() - 삽입(1) - 삽입(4) - 삭제()
+queue.enqueue(5);
+queue.enqueue(2);
+queue.enqueue(3);
+queue.enqueue(7);
+queue.dequeue();
+queue.enqueue(1);
+queue.enqueue(4);
+queue.dequeue();
+
+// 먼저 들어온 순서대로 출력
+while (queue.getLength() != 0) {
+console.log(queue.dequeue());
+}
+
+```
