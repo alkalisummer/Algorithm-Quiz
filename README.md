@@ -59,9 +59,8 @@ rl.on('line', function(line) {
 }) ;
 
 ```
+
 <br><br>
-
-
 
 ## 3. 자료구조
 
@@ -81,34 +80,35 @@ rl.on('line', function(line) {
   <br>
   힙은 원소의 삽입과 삭제를 위해 O(logN)의 수행시간을 요구한다.
   <br>
-  단순한 N개의 데이터를 힙에 넣었다가 모두 꺼내는 작업은 정렬과 동일하다. -> 이 경우 시간복잡도는 O(NlogN) 이다.   
-***
+  단순한 N개의 데이터를 힙에 넣었다가 모두 꺼내는 작업은 정렬과 동일하다. -> 이 경우 시간복잡도는 O(NlogN) 이다.
+
+---
 
 #### javascript 큐(Queue) 구현하기
 
 ```
 class Queue {
-constructor() {
-this.items = {};
-this.headIndex = 0;
-this.tailIndex = 0;
-}
-enqueue(item) {
-this.items[this.tailIndex] = item;
-this.tailIndex++;
-}
-dequeue() {
-const item = this.items[this.headIndex];
-delete this.items[this.headIndex];
-this.headIndex++;
-return item;
-}
-peek() {
-return this.items[this.headIndex];
-}
-getLength() {
-return this.tailIndex - this.headIndex;
-}
+  constructor() {
+    this.items = {};
+    this.headIndex = 0;
+    this.tailIndex = 0;
+  }
+  enqueue(item) {
+    this.items[this.tailIndex] = item;
+    this.tailIndex++;
+  }
+  dequeue() {
+    const item = this.items[this.headIndex];
+    delete this.items[this.headIndex];
+    this.headIndex++;
+    return item;
+  }
+  peek() {
+    return this.items[this.headIndex];
+  }
+  getLength() {
+    return this.tailIndex - this.headIndex;
+  }
 }
 
 // 사용법
@@ -129,7 +129,7 @@ queue.dequeue();
 
 // 먼저 들어온 순서대로 출력
 while (queue.getLength() != 0) {
-console.log(queue.dequeue());
+  console.log(queue.dequeue());
 }
 
 ```
