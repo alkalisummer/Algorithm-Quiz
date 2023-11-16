@@ -86,3 +86,50 @@ function insertionSort(arr) {
   }
 }
 ```
+
+## 4. 병합정렬
+
+<br>
+- 병합정렬은 전형적인 분할 정복 알고리즘
+- 분할 : 정렬할 배열을 같은 크기의 부분배열 2개로 분할
+- 정복 : 부분 배열을 정렬
+- 조합 : 정렬된 부분 배열을 하나의 배열로 다시 병합
+- 분할 정복은 일반적으로 재귀 함수를 이용하여 구현 -> 더이상 쪼갤수 없는 크기가 될 때까지 계속하여 분할해야 하기 때문
+- 시간복잡도 : O(NlogN) 보장하는 빠른 정렬 알고리즘
+
+```
+// 병합(merge) 수행 함수
+function merge(arr, left, mid, right) {
+  let i = left;
+  let j = mid + 1;
+  let k = left; // 결과 배열의 인덱스
+  while (i <= mid && j <= right) {
+    if (arr[i] <= arr[j]) sorted[k++] = arr[i++];
+    else sorted[k++] = arr[j++];
+  }
+  // 왼쪽 배열에 대한 처리가 다 끝난 경우
+  if (i > mid) {
+    for (; j <= right; j++) sorted[k++] = arr[j];
+  }
+  // 오른쪽 배열에 대한 처리가 다 끝난 경우
+  else {
+    for (; i <= mid; i++) sorted[k++] = arr[i];
+  }
+  // 정렬된 배열 결과를 원본 배열에 반영하기
+  for (let x = left; x <= right; x++) {
+    arr[x] = sorted[x];
+  }
+}
+
+// 병합 정렬(merge sort) 함수
+function mergeSort(arr, left, right) {
+  // 원소가 1개인 경우, 해당 배열은 정렬이 된 상태로 이해 가능
+  if (left < right) {
+    // 원소가 2개 이상이라면
+    let mid = parseInt((left + right) / 2); // 2개의 부분 배열로 분할(divide)
+    mergeSort(arr, left, mid); // 왼쪽 부분 배열 정렬 수행(conquer)
+    mergeSort(arr, mid + 1, right); // 오른쪽 부분 배열 정렬 수행(conquer)
+    merge(arr, left, mid, right); // 정렬된 2개의 배열을 하나로 병합(combine)
+  }
+}
+```
