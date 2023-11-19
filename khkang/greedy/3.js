@@ -30,3 +30,4 @@ const cnt = 0;
 for (let i = weightArr.length - 1; n <= 0; i--) {
   cnt += parseInt();
 }
+////
