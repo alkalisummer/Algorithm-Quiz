@@ -18,9 +18,9 @@
 
 */
 
-//const fs = require('fs');
-//const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-const input = ['13', 'but', 'i', 'wont', 'hesitate', 'no', 'more', 'no', 'more', 'it', 'cannot', 'wait', 'im', 'yours'];
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+//const input = ['13', 'but', 'i', 'wont', 'hesitate', 'no', 'more', 'no', 'more', 'it', 'cannot', 'wait', 'im', 'yours'];
 
 const cnt = Number(input[0]);
 const wordArr = [];
