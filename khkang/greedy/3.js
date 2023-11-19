@@ -19,14 +19,37 @@
 
 */
 
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+//const fs = require('fs');
+//const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
-const weightArr = ['3', '5'];
+const input = ['11'];
 
-const n = Number(input[0]);
+const weightArr = ['3', '5'].map(Number);
 
-const cnt = 0;
-for (let i = weightArr.length - 1; n <= 0; i--) {
-  cnt += parseInt();
+let t = Number(input[0]);
+
+let cnt = 0;
+let sumArr = [];
+
+if (t % 5 === 0) {
+  cnt = t / 5;
+  sumArr.push(cnt);
+} else {
+  for (let i = 0; ; i++) {
+    let q = t - 5 * i;
+    if (q < 0) {
+      break;
+    }
+    let tq = parseInt(q / 3);
+    let tr = q % 3;
+    if (tr === 0) {
+      sumArr.push([i + tq]);
+    }
+  }
+}
+
+if (sumArr.length === 0) {
+  console.log(-1);
+} else {
+  console.log(Math.min(...sumArr));
 }
