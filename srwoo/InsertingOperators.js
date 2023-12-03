@@ -6,57 +6,34 @@ const input = `
 5 6
 0 0 1 0
 `.toString().trim().split('\n');
-const [idx, arr, operators] = input;
 
-const calculate = [
+const [idx, arr, operators] = input.map((v) => v.split(" ").map(Number));
+
+const cal = [
   (a, b) => a + b,
   (a, b) => a - b,
   (a, b) => a * b,
-  (a, b) => ~~(a / b)
+  (a, b) => parseInt(a / b),
 ];
-
 let min = 1000000000;
 let max = -1000000000;
 
 const recursive = (cnt, val) => {
-    const originVal = val;//다시 초기화 할 때 사용.
-
     if(cnt === idx-1){
-        if(val>max) max=val;
-        if(val<min) min=val;
-        return;
+        max = Math.max(max, val);
+        min = Math.min(min, val);
     }else {
         for(let i=0; i<4; i++){
-            if(operators[i]>0){
-                switch(i){
-                    case 0:
-                        val+=arr[cnt+1];
-                    break;
-                    case 1:
-                        val-=arr[cnt+1];
-                    break;
-                    case 2:
-                        val*=arr[cnt+1];
-                    break;
-                    case 3:
-                        if(val>=0){
-                            val = Math.floor(val/arr[cnt+1])
-                        }else{
-                            val = Math.floor((-1)*val/arr[cnt+1])
-                            if(val>0) val = val*(-1);// -0이 나올 수도 있기 때문에 
-                        }
-                    break;
-                }
-    
-                operators[i]--;
-                recursive(cnt+1, arr);
-                arr = originVal;
-                operators[i]++;
-            }
+            if(operators[i] === 0) continue;
+
+            operators[i]--;
+            recursive(cnt+1, cal[i](val, arr[cnt+1]));
+            operators[i]++;
         }
     }
-
 }
 
 recursive(0, arr[0]);
-console.log(`${max}\n${min}`);
+
+console.log(max ? max : 0);
+console.log(min ? min : 0);
