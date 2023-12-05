@@ -24,6 +24,7 @@ N이 주어졌을 때 수식의 결과가 0이 되는 모든 수식을 찾는 �
 
 //const fs = require('fs');
 //const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+//ㅇㅇ
 
 const input = `2
 3
