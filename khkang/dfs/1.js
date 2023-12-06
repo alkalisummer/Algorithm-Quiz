@@ -19,19 +19,8 @@
 1번 컴퓨터가 웜 바이러스에 걸렸을 때, 1번 컴퓨터를 통해 웜 바이러스에 걸리게 되는 컴퓨터의 수를 첫째 줄에 출력한다. 
 */
 
-// const fs = require('fs');
-// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-
-const input = `7
-6
-1 2
-2 3
-1 5
-5 2
-5 6
-4 7`
-  .trim()
-  .split('\n');
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
 let [cnt, lcnt] = input.map(Number);
 let graph = [];
