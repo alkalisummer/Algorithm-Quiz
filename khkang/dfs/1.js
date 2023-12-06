@@ -30,7 +30,6 @@ for (let i = 2; i <= lcnt + 1; i++) {
   graph[x].push(y);
   graph[y].push(x);
 }
-console.log(graph);
 
 let visited = new Array(cnt + 1).fill(false);
 
