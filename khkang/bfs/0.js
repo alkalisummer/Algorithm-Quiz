@@ -52,7 +52,7 @@ function bfs() {
   let queue = new Queue();
   queue.enqueue(n);
   // 큐가 빌 때까지 반복
-  while (1) {
+  while (queue.getLength() != 0) {
     let cur = queue.dequeue();
     if (cur == k) {
       return visited[cur];
