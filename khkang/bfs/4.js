@@ -18,14 +18,12 @@
 // const fs = require('fs');
 // const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
-const input = `7
-0110100
-0110101
-1110101
-0000111
-0100000
-0111110
-0111000`
+const input = `5
+10101
+01010
+10101
+01010
+10101`
   .trim()
   .split('\n');
 
