@@ -15,19 +15,8 @@
 
 */
 
-// const fs = require('fs');
-// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-const input = `6 8
-1 2
-2 5
-5 1
-3 4
-4 6
-5 4
-2 4
-2 3`
-  .trim()
-  .split('\n');
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
 const [n, m] = input[0].split(' ').map(Number);
 let graph = [];
