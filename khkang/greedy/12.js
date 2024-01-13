@@ -26,15 +26,11 @@ S는 일반 좌석, L은 커플석을 의미하며, L은 항상 두개씩 쌍으
 출력
 컵을 컵홀더에 놓을 수 있는 최대 사람의 수를 출력한다.
 
+
 */
 
-// const fs = require('fs');
-// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-
-const input = `9
-SLLLLSSLL`
-  .trim()
-  .split('\n');
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
 let n = Number(input[0]);
 let seatArr = input[1].split('');
