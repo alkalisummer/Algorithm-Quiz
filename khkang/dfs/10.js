@@ -17,3 +17,43 @@
 
 // const fs = require('fs');
 // const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const input = `6 8
+1 2
+2 5
+5 1
+3 4
+4 6
+5 4
+2 4
+2 3`
+  .trim()
+  .split('\n');
+
+const [n, m] = input[0].split(' ').map(Number);
+let graph = [];
+for (let i = 1; i <= n; i++) graph[i] = [];
+for (let i = 1; i <= m; i++) {
+  let [x, y] = input[i].split(' ').map(Number);
+  graph[x].push(y);
+  graph[y].push(x);
+}
+
+let visited = new Array(n + 1).fill(false);
+let cnt = 0;
+function dfs(v) {
+  visited[v] = true;
+  for (let i of graph[v]) {
+    if (!visited[i]) {
+      dfs(i);
+    }
+  }
+}
+
+for (let i = 1; i <= n; i++) {
+  if (!visited[i]) {
+    dfs(i);
+    cnt++;
+  }
+}
+
+console.log(cnt);
