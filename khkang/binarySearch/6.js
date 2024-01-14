@@ -19,15 +19,8 @@
 
 */
 
-// const fs = require('fs');
-// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-
-const input = `3 1000000
-718571 2557 74
-480573 9706 54
-16511 6660 90`
-  .trim()
-  .split('\n');
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
 // n : 버스 종류 개수, t: 영식이가 버스터미널에 도착하는 시간
 const [n, t] = input[0].split(' ').map(Number);
