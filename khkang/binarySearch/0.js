@@ -21,10 +21,10 @@
 
 */
 
-//const fs = require('fs');
-//const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
-const input = ['4', '120 110 140 150', '485'];
+// const input = ['4', '120 110 140 150', '485'];
 const cnt = Number(input[0]);
 const province = input[1].split(' ').map(Number);
 const budget = Number(input[2]);

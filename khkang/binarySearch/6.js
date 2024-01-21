@@ -39,6 +39,7 @@ for (let i = 1; i <= n; i++) {
   if (busArr[start] > t) {
     res.push(busArr[start]);
   } else {
+    ß;
     while (start <= end) {
       let mid = parseInt((start + end) / 2);
       if (busArr[mid] == t) {
